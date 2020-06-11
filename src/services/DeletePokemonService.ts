@@ -5,16 +5,14 @@ import AppError from '../errors/AppError';
 import Pokemon from '../models/Pokemon';
 
 interface Request {
-  parsedPokedexNumber: number;
+  id: string;
 }
 
 class DeletePokemonService {
-  public async execute({ parsedPokedexNumber }: Request): Promise<void> {
+  public async execute({ id }: Request): Promise<void> {
     const pokemonRepository = getRepository(Pokemon);
 
-    const pokemon = await pokemonRepository.findOne({
-      Pokedex_Number: parsedPokedexNumber,
-    });
+    const pokemon = await pokemonRepository.findOne(id);
 
     if (!pokemon) throw new AppError('Pokemon not Found', 404);
 

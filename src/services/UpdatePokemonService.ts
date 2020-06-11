@@ -9,7 +9,7 @@ class UpdatePokemonService {
     const pokemonRepository = getRepository(Pokemon);
 
     let updatedPokemon = await pokemonRepository.findOne({
-      Pokedex_Number: pokemon.Pokedex_Number,
+      id: pokemon.id,
     });
 
     if (!updatedPokemon) throw new AppError('Pokemon not Found', 404);

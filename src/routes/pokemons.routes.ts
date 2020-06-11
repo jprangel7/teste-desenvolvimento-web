@@ -45,8 +45,8 @@ pokemonsRouter.get('/:pokedexNumber', async (request, response) => {
 
   const pokemonRepository = getRepository(Pokemon);
 
-  const pokemon = await pokemonRepository.findOne({
-    Pokedex_Number: parsedPokedexNumber,
+  const pokemon = await pokemonRepository.find({
+    where: { Pokedex_Number: parsedPokedexNumber },
   });
 
   return response.status(200).json(pokemon);
@@ -72,13 +72,12 @@ pokemonsRouter.put('/', async (request, response) => {
   return response.status(200).json(updatedPokemon);
 });
 
-pokemonsRouter.delete('/:pokedexNumber', async (request, response) => {
-  const { pokedexNumber } = request.params;
-  const parsedPokedexNumber = parseInt(pokedexNumber, 10);
+pokemonsRouter.delete('/:id', async (request, response) => {
+  const { id } = request.params;
 
   const deletePokemon = new DeletePokemonService();
 
-  await deletePokemon.execute({ parsedPokedexNumber });
+  await deletePokemon.execute({ id });
 
   return response.status(200).json({ message: 'Pokemon deleted' });
 });

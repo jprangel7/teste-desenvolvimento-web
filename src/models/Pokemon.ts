@@ -3,12 +3,15 @@ import {
   Column,
   UpdateDateColumn,
   CreateDateColumn,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 
 @Entity('pokemons')
 class Pokemon {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
   Pokedex_Number: number;
 
   @Column()

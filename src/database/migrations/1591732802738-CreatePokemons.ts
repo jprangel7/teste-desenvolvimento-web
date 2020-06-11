@@ -7,9 +7,15 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
         name: 'pokemons',
         columns: [
           {
+            name: 'id',
+            type: 'uuid',
+            isPrimary: true,
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
+          },
+          {
             name: 'Pokedex_Number',
             type: 'integer',
-            isPrimary: true,
           },
           {
             name: 'Name',
@@ -34,10 +40,12 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
           {
             name: 'FamilyID',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'Cross_Gen',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'Type_1',
@@ -129,11 +137,13 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
+            isNullable: true,
           },
           {
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
+            isNullable: true,
           },
         ],
       }),
