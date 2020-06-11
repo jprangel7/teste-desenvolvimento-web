@@ -1,5 +1,7 @@
 import { getRepository } from 'typeorm';
 
+import AppError from '../errors/AppError';
+
 import Pokemon from '../models/Pokemon';
 
 class UpdatePokemonService {
@@ -10,7 +12,7 @@ class UpdatePokemonService {
       Pokedex_Number: pokemon.Pokedex_Number,
     });
 
-    if (!updatedPokemon) throw new Error();
+    if (!updatedPokemon) throw new AppError('Pokemon not Found', 404);
 
     updatedPokemon = pokemon;
 

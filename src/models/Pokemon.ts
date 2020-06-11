@@ -8,11 +8,11 @@ import {
 
 @Entity('pokemons')
 class Pokemon {
-  @Column()
-  Name: string;
-
   @PrimaryColumn()
   Pokedex_Number: number;
+
+  @Column()
+  Name: string;
 
   @Column()
   Img_name: number;

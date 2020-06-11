@@ -1,20 +1,22 @@
 import { getRepository } from 'typeorm';
 
+import AppError from '../errors/AppError';
+
 import Pokemon from '../models/Pokemon';
 
 interface Request {
-  pokedexNumber: number;
+  parsedPokedexNumber: number;
 }
 
 class DeletePokemonService {
-  public async execute({ pokedexNumber }: Request): Promise<void> {
+  public async execute({ parsedPokedexNumber }: Request): Promise<void> {
     const pokemonRepository = getRepository(Pokemon);
 
     const pokemon = await pokemonRepository.findOne({
-      Pokedex_Number: pokedexNumber,
+      Pokedex_Number: parsedPokedexNumber,
     });
 
-    if (!pokemon) throw new Error();
+    if (!pokemon) throw new AppError('Pokemon not Found', 404);
 
     await pokemonRepository.remove(pokemon);
   }

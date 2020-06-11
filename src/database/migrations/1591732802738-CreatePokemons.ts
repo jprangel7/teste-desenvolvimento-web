@@ -7,13 +7,13 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
         name: 'pokemons',
         columns: [
           {
-            name: 'Name',
-            type: 'varchar',
-          },
-          {
             name: 'Pokedex_Number',
             type: 'integer',
             isPrimary: true,
+          },
+          {
+            name: 'Name',
+            type: 'varchar',
           },
           {
             name: 'Img_name',
