@@ -1,58 +1,39 @@
 # Teste de Desenvolvimento Web
 
-Olá Dev! Tudo bem?
+Olá RedFox! Meu nome é João Pedro Rangel, desenvolvedor WEB FullStack, usando JavaScript, TypeScript, NodeJs, ReactJS, React Native e Angular.
 
-A RedFox está sempre em busca de profissionais interessantes e interessados, com boa capacidade de aprendizado, adaptação e principalmente motivação!
+Para o desafio proposto, optei em desenvolver o Back-End da aplicação, utilizando as tecnologias NodeJS, TypeScript, TypeORM, Express, Multer, e banco de dados PostGres.
 
-Este teste tem como objetivo avaliar e desafiar você. Não é obrigatório realizá-lo completamente, queremos apenas conhecer você, seu esforço e potencial para aprender, se adaptar e tomar decisões.
+## Iniciando a Aplicação
 
-Agora vamos ao teste!
+Primeiramente, faça um clone do repositório git clone https://github.com/jprangel7/teste-desenvolvimento-web
 
+Agora, acesse o diretório do projeto e instale as dependências, com Yarn: ```yarn add``` ou NPM: ```npm install```
 
-## Desafio Pokémon
+Após a instalação, use o comando ```yarn dev:server``` ou ```npm dev:server``` para iniciar a aplicação localmente.
 
-Nós temos um problema, atualmente nosso sistema é só um excel, cheio de informações sobre Pokémon. Nós usamos ele como banco de dados e ao mesmo tempo interface de gerenciamento, inserindo, editando, deletando e filtrando os dados.
+## Desenvolvimento
 
-A missão é criar um sistema para substituir este excel, pois queremos expandir e acrescentar funcionalidades. Queremos manter o básico, mas principalmente queremos uma forma prática e agradável de buscar os dados, com listagem, filtros, paginação e detalhes sobre cada Pokémon.
-
-Fique à vontade com o layout, precisamos de uma interface que consiga entregar as funcionalidades principais e substituir o excel, só isso.
-
-
-## Consigo fazer tudo isso?
-
-Consegue sim!
-
-O teste é flexível, você pode escolher alguma parte específica dele para fazer, em que se sinta mais confortável e confiante, por exemplo: a interface, as funcionalidades, o banco de dados, etc...O importante é tentar atingir o objetivo de alguma forma.
-
-Aqui na RedFox queremos aproveitar ao máximo suas habilidades e aptidões, mas também desafiar você a adquirir novas, então nossa equipe tem a liberdade de trasitar entre frontend, backend, infraestrutura, etc...Sem se restringir, tudo depende do esforço e vontade de cada um.
+Primeiramente, utilizei o docker para criar uma imagem do PostGres, e gerar um novo banco de dados. Após a criação do banco de dados, utilizei o TypeORM,
+um ferramenta de Mapeamento Objeto-Relacional, para criar as migrations e gerar as tabelas do banco de dados e o model Pokemon.
 
 
-## Por onde começo?
+### Funcionalidades / Rotas
 
-Primeiramente, você pode fazer um fork desse repositório aqui, para sua conta do Github, depois disso crie uma branch nova com o seu nome, para podermos indentificá-lo.
+As funcionalidades que julguei necessário para um primeiro MVP, Minimum Viable Product (Produto Variável Mínimo), da aplicação foram:
 
-Após terminar o desafio, você pode solicitar um pull request para a branch master do nosso repositório. Vamos receber e fazer a avaliação de todos.
+* ``` GET /pokemon/ ```: Retorna todos os Pokemons do banco de dados;
 
+* ``` GET /pokemon/getByName ```: Recebe uma nome (string) e, caso encontre, retorna o pokemon de mesmo nome;
 
-## E o Layout??
+* ``` GET /pokemon/getByType ```: Recebe um tipo (string) e, caso encontre, retorna todos os Pokemons do tipo informado;
 
-Fique a vontade quanto a isso, não vamos avaliar o design da sua interface. Se quiser desenhar algo bacana, diferente, pensar até em UI/UX, etc...é claro que vamos valorizar o seu esforço e considerar como um diferencial, mas não se preocupe. 
+* ``` GET /pokemon/:pokedexNumber ```: Recebe um Pokedex Number, e caso encontre, retorna o pokemon de mesmo Pokedex Number;
 
+* ``` POST /pokemon/ ```: Recebe um Pokemon, e cria no banco de dados um novo Pokemon com as informações recebidas. Retorna o Pokemon criado. Ao criar um Pokemon, é gerado automaticamente um id único para o mesmo, usando a biblioteca UUIDv4;
 
-## Regras
+* ``` POST /pokemon/importCSV ```: Recebe um arquivo csv, e cria no banco de dados todos os Pokemons informados no arquivo. Retorna todos os Pokemons criados. Ao criar um Pokemon, é gerado automaticamente um id único para o mesmo, usando a biblioteca UUIDv4. A tratativa do csv é feita utilizando a biblioteca Multer;
 
-Para o desafio ficar mais interessante, decidimos criar algumas regras:
-- No layout, deve utilizar algum framework CSS (ex: Bootstrap, MaterializeCSS, Bulma...)
-- No frontend, deve utilizar algum framework JS (ex: VueJS, ReactJS, Angular...tente não usar jQuery)
-- No backend, deve utilizar NodeJS
-- Documentar um pouco o projeto, o que você fez e de que forma devemos executar-lo
+* ``` PUT /pokemon/ ```: Recebe um Pokemon e, caso ele exista no banco de dados, atualiza o Pokemon. Retorna o Pokemon atualizado;
 
-
-## Só isso?
-
-Só!...mas se quiser ir além, tente preparar o projeto para ser executado de maneira simples e prática, se coloque no lugar de alguém com menos conhecimentos, que precisa ver o que você desenvolveu. 
-
-ps: Se fizer deploy em algum servidor ou utilizar alguma ferramenta que facilite a execução (ex: docker), será um diferencial.
-
-
-Boa sorte! (^_^)
+* ``` DELETE /pokemon/:id ```: Recebe um id, caso ache um Pokemon de mesmo id no banco de dados, o Pokemon é deletado.
