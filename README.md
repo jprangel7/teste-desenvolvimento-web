@@ -6,9 +6,12 @@ Para o desafio proposto, optei em desenvolver o Back-End da aplicação, utiliza
 
 ## Iniciando a Aplicação
 
-Primeiramente, faça um clone do repositório git clone https://github.com/jprangel7/teste-desenvolvimento-web
+Primeiramente, faça um clone do repositório git clone https://github.com/jprangel7/teste-desenvolvimento-web, e troque de branch:
+```git checkout JoaoPedroRangel```
 
 Agora, acesse o diretório do projeto e instale as dependências, com Yarn: ```yarn add``` ou NPM: ```npm install```
+
+Para alterar as configurações de acesso ao banco de dados, altere o arquivo **ormconfig.json**.
 
 Após a instalação, use o comando ```yarn dev:server``` ou ```npm dev:server``` para iniciar a aplicação localmente.
 
@@ -37,3 +40,5 @@ As funcionalidades que julguei necessário para um primeiro MVP, Minimum Viable 
 * ``` PUT /pokemon/ ```: Recebe um Pokemon e, caso ele exista no banco de dados, atualiza o Pokemon. Retorna o Pokemon atualizado;
 
 * ``` DELETE /pokemon/:id ```: Recebe um id, caso ache um Pokemon de mesmo id no banco de dados, o Pokemon é deletado.
+
+Todas as rotas tem tratativas, caso a requisição tenho algum erro. Por exemplo, não é possível criar um Pokemon com um nome já existente. Para gerenciar essas tratativas, criei um Global Error Handling, **./src/error/AppError.ts**, que é chamado toda vez que houver um error na aplicação, retornando o status do erro e uma mensagem.
