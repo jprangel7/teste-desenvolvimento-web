@@ -18,13 +18,13 @@ class Pokemon {
   Name: string;
 
   @Column()
-  Img_name: number;
+  Img_name: string;
 
   @Column()
   Generation: number;
 
   @Column()
-  Evolution_Stage: number;
+  Evolution_Stage: string;
 
   @Column()
   Evolved: boolean;

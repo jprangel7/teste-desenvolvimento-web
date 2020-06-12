@@ -23,19 +23,23 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
           },
           {
             name: 'Img_name',
-            type: 'integer',
+            type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'Generation',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'Evolution_Stage',
-            type: 'integer',
+            type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'Evolved',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'FamilyID',
@@ -50,6 +54,7 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
           {
             name: 'Type_1',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'Type_2',
@@ -59,6 +64,7 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
           {
             name: 'Weather_1',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'Weather_2',
@@ -68,70 +74,87 @@ export default class CreatePokemons1591732802738 implements MigrationInterface {
           {
             name: 'STAT_TOTAL',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'ATK',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'DEF',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'STA',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'Legendary',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'Aquireable',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'Spawns',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'Regional',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'Raidable',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'Hatchable',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'Shiny',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'Nest',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'New',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'Not_Gettable',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'Future_Evolve',
             type: 'boolean',
+            isNullable: true,
           },
           {
             name: 'CP_40',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'CP_39',
             type: 'integer',
+            isNullable: true,
           },
           {
             name: 'created_at',
